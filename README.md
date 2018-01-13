@@ -4,9 +4,9 @@ This demo project was developed for **The Home Depot**. Calculate live currency 
 
 ## Install dependencies
 
-Once the Run `npm install` to install the dependencies. Once the installation is complete, you can see `node_modules` folder in the root folder. 
+Clone or download the files and Run `npm install` from Node.js command prompt to install the dependencies. With the installation, `node_modules` folder gets created. 
 
 ## Run the Application
 
-Run `npm start`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start`from command promp. Navigate to `http://localhost:4200/` on your browser. 
 
