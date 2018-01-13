@@ -8,5 +8,5 @@ Clone or download the files and Run `npm install` from Node.js command prompt to
 
 ## Run the Application
 
-Run `npm start`from command promp. Navigate to `http://localhost:4200/` on your browser. 
+Run `npm start`from command prompt. Navigate to `http://localhost:4200/` on your browser. 
 
