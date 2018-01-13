@@ -1,0 +1,74 @@
+<div class="slds-notify_container">
+  <ngl-notification *ngIf="showAlert" type="alert" severity="error" (nglNotificationClose)="onClose($event)" timeout="10000" class="slds-theme--alert-texture">
+    <h2>Sorry somethings not right! Please try reloading the page or try after some time!</h2>
+  </ngl-notification>
+</div>
+
+<div *ngIf="loading=='loading..'" class="demo-only demo--inverse" style="height: 6rem;">
+  <div role="status" class="slds-spinner slds-spinner_medium">
+    <span class="slds-assistive-text">Loading</span>
+    <div class="slds-spinner__dot-a"></div>
+    <div class="slds-spinner__dot-b"></div>
+  </div>
+</div>
+
+<div class="slds-grid slds-text-color_inverse slds-text-align_center" >
+    <div class="slds-col slds-medium-size_7-of-12 slds-small-size_11-of-12" style="padding: 0.5rem; background: rgb(22, 50, 92);">
+      {{loading}}
+    </div>
+</div>
+<br/>
+<div *ngIf="loading!='loading..'">
+  <div class="slds-grid">
+    <div class="slds-col slds-medium-size_4-of-12 slds-small-size_6-of-12  slds-x-small-size_6-of-12  slds-xx-small-size_6-of-12">
+      <div class="slds-form-element slds-has-error">
+        <label class="slds-form-element__label" for="amount"><abbr class="slds-required" title="required">*</abbr>Type in amount</label>
+        <div class="slds-form-element__control">
+          <input type="number" [ngModel]="amount1" (ngModelChange)="onAmountChange($event)"  #amount="ngModel" min="0.01" step="0.01" value="0.00" name="amount" class="slds-input" 
+          required aria-describedby="error-message-unique-id" />
+        </div>
+        <!-- <div class="slds-form-element__help" id="error-message-unique-id" *ngIf="amount.errors.required">This field is required</div> -->
+        <div *ngIf="amount.invalid && (amount.dirty || amount.touched)"
+          class="slds-form-element__help" >
+          <div  *ngIf="amount.errors.required">
+            Amount is required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slds-col slds-medium-size_1-of-12 slds-small-size_1-of-12 slds-x-small-size_1-of-12 slds-xx-small-size_1-of-12"></div>
+    <div class="slds-col slds-medium-size_2-of-12 slds-small-size_3-of-12 slds-x-small-size_3-of-12 slds-xx-small-size_3-of-12">
+      <ngl-form-element label="Currency" [error]="hasError ? error : null" >
+        <select nglFormControl class="slds-select" [ngModel]="CurFromConv" (ngModelChange)="onFromCurChange($event)" 
+          [required]="required">
+          <option *ngFor="let cur of currencyCodes" [value]="cur" >{{cur}}</option>
+        </select>
+      </ngl-form-element>
+    </div>
+  </div>
+  <div class="slds-grid">
+    <div class="slds-col slds-medium-size_4-of-12 slds-small-size_6-of-12  slds-x-small-size_6-of-12 slds-xx-small-size_6-of-12">
+      <div class="slds-form-element">
+        <label class="slds-form-element__label" for="input-unique-id">Converted amount</label>
+        <div class="slds-form-element__control">
+          <input type="number" [(ngModel)]="amountConverted" min="0.01" step="0.01" value="0.00" id="amountConverted" class="slds-input" />
+        </div>
+      </div>
+    </div>
+    <div class="slds-col slds-medium-size_1-of-12 slds-small-size_1-of-12 slds-x-small-size_1-of-12 slds-xx-small-size_1-of-12"></div>
+    <div class="slds-col slds-medium-size_2-of-12 slds-small-size_3-of-12 slds-x-small-size_3-of-12 slds-xx-small-size_3-of-12">
+      <ngl-form-element label="" [error]="hasError ? error : null" >
+        <select nglFormControl class="slds-select" [ngModel]="CurToConv" (ngModelChange)="onToCurChange($event)"  [required]="required">
+          <option *ngFor="let cur of currencyCodes" [value]="cur" >{{cur}}</option>
+        </select>
+      </ngl-form-element>
+    </div>
+  </div>
+  <div class="slds-grid">
+    <div class="slds-col slds-medium-size_7-of-12 slds-small-size_11-of-12 slds-x-small-size_11-of-12 slds-xx-small-size_6-of-12 slds-text-align_right">
+        <ng-template #interactive>Exchange rate with Base:{{CurFromConv}}<div>USD:{{tip[0]}}, EUR:{{tip[1]}}</div> </ng-template>
+        <a [nglPopover]="interactive" nglTooltip [nglOpen]="openClick" (click)="openClick = !openClick">Disclaimer</a>
+    </div>
+  </div>
+</div>
+<br/>
