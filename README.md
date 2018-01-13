@@ -1,10 +1,10 @@
-# HomeDepot
+# Currency Converter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+This demo project was developed for **The Home Depot**. Calculate live currency and foreign exchange rates with this free currency converter. You can convert currencies with this currency calculator for currencies CAD, USD, EUR. It utilizes APIs from http://fixer.io/
 
 ## Install dependencies
 
-Run `npm install` to install the dependencies.
+Once the Run `npm install` to install the dependencies. Once the installation is complete, you can see `node_modules` folder in the root folder. 
 
 ## Run the Application
 
