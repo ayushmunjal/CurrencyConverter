@@ -4,9 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install dependencies
 
-Run `npm install` from root folder. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm install` to install the dependencies.
 
-## Deployment server
+## Run the Application
 
 Run `npm start`. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
