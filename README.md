@@ -2,7 +2,9 @@
 
 This demo project calculates live currency using foreign exchange rates. Currency converter is for currencies CAD, USD, EUR. It is developed using Lightning Design System and leverages APIs from http://fixer.io/. 
 
-## Running Engage locally
+## Running Currency Converter locally
+
+Follow the below commands to run the application locally.
 
 ```
 	git clone https://github.com/ayushmunjal/CurrencyConverter.git
