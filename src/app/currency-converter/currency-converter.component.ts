@@ -13,6 +13,7 @@ export class CurrencyConverterComponent implements OnInit {
   showAlert: any;
   tip: any;
   loading;
+  title="Converter Widget";
   currencyCodes = ['CAD','USD','EUR'];
   currencyRates;
   amountConverted;
@@ -34,7 +35,7 @@ export class CurrencyConverterComponent implements OnInit {
     this.loading="loading..";
     this.currencyService.getCurrency(this.CurFromConv).subscribe(
       data => {
-        this.loading="Currency Converter Widget";
+        this.loading=this.title;
         this.currencyRates=data.rates;
         this.tip=[this.currencyRates['USD'],this.currencyRates['EUR']];
       },
@@ -46,7 +47,7 @@ export class CurrencyConverterComponent implements OnInit {
     this.loading="loading..";
     this.currencyService.getCurrency(base).subscribe(
       data => {
-        this.loading="Currency Converter Widget";
+        this.loading=this.title;
         this.currencyRates=data.rates;
         if (this.amount1!=0) {
           if (this.CurFromConv==this.CurToConv) {
